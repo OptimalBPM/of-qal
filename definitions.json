@@ -1,0 +1,66 @@
+{
+  "plugins": {
+    "qal": {
+      "description": "Query Abstraction Layer plugin",
+      "title": "QAL"
+    }
+  },
+  "namespaces": {
+    "qal": {
+      "description": "Query Abstraction Layer",
+      "title": "QAL",
+      "functions": {
+        "query": {
+          "title": "query <i>%parameters%</i>",
+          "description": "Query and join one or more data sources, return a structure that can return an SQL to run<div class='alert alert-info'>Supported datasets: RDBMS, XML, HTML, Excel and csv-files.</div>",
+          "parameters": [
+            {
+              "key": "statement",
+              "type": "complex-ui",
+              "options": {
+                "schemaRef": "qal://sql.json"
+              },
+              "title": "Query statement",
+              "description": "A structure that defines the query statement, see schemas/sql.json. Returns a QAL dataset.",
+              "output": false
+            }
+          ]
+        },
+        "merge_datasets": {
+          "title": "merge <i>%parameters%</i>",
+          "description": "Merge a source QAL dataset into a destination QAL dataset.<div class='alert alert-info'>Used to transform and to merge datasets vertically (as opposed to joins)</div>",
+          "parameters": [
+            {
+              "key": "merge",
+              "type": "complex-ui",
+              "options": {
+                "modal": true,
+                "buttonCaption": "Edit merge",
+                "schemaRef": "qal://transformation.json#/definitions/Merge"
+              },
+              "title": "Merge",
+              "description": "A structure that defines the merge, see schemas/transformation.json. Returns a QAL dataset.",
+              "output": false
+            }
+          ]
+        },
+        "open_dataset": {
+          "title": "open dataset <i>%parameters%</i>",
+          "description": "Returns an open dataset.",
+          "parameters": [
+            {
+              "key": "resource",
+              "type": "complex-ui",
+              "options": {
+                "schemaRef": "qal://sql.json#/definitions/ParameterDataset"
+              },
+              "title": "Resource information",
+              "description": "Settings for the dataset",
+              "output": false
+            }
+          ]
+        }
+      }
+    }
+  }
+}
