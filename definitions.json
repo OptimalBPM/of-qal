@@ -2,10 +2,28 @@
   "plugins": {
     "qal": {
       "description": "Query Abstraction Layer plugin",
-      "title": "QAL"
+      "title": "QAL",
+      "dependencies": {},
+      "failOnError": true,
+      "admin-ui": {
+        "mountpoint": "qal",
+        "controllers": [
+          {
+            "name": "TransformationController",
+            "module": "qal/controllers/transformation",
+            "dependencies": [
+              "$scope",
+              "$http",
+              "$q",
+              "$timeout"
+            ]
+          }
+                  ]
+      }
     }
   },
   "namespaces": {
+
     "qal": {
       "description": "Query Abstraction Layer",
       "title": "QAL",
@@ -36,6 +54,7 @@
               "options": {
                 "modal": true,
                 "buttonCaption": "Edit merge",
+                "includeURI": "qal/views/transformation.html",
                 "schemaRef": "qal://transformation.json#/definitions/Merge"
               },
               "title": "Merge",
