@@ -2,9 +2,6 @@
 
 import "angular";
 
-import "jquery";
-import "angular-ui-select";
-import {Transformation} from  "../types/schemaTreeTypes";
 
 
 export function nodes(): ng.IDirective {

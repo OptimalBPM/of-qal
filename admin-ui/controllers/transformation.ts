@@ -5,30 +5,27 @@ import "angular";
 
 export class TransformationController {
 
-    $timeout:ng.ITimeoutService;
-    
+    $timeout: ng.ITimeoutService;
+    $http: ng.IHttpService;
+    $q: ng.IQService;
+    $scope: ng.IScope;
 
-    constructor(private $scope: TransformationScope, $http:ng.IHttpService, $q:ng.IQService, $timeout:ng.ITimeoutService/*, UiTreeHelper: any*/) {
-        console.log("Initiating the process controller" + $scope.toString());
-        super($scope, $http, $q);
+    hello = (): string => {
+        return "HI!";
+    };
+
+    constructor(private $scope: ng.IScope, $http: ng.IHttpService, $q: ng.IQService, $timeout: ng.ITimeoutService) {
+
+
 
         /*this.uiTreeHelper = UiTreeHelper;*/
         this.$timeout = $timeout;
+        this.$http = $http;
+        this.$q = $q;
+        this.$scope = $scope;
 
-        $timeout(() => {
-            // Set height
-            this.resizeProcess();
-            $(window).resize(() => {
-                this.resizeProcess();
-            });
-        });
-        this.menuTreeOptions= {
-            beforeDrop: this.onBeforeDrop
-        };
-
-        this.loadProcesses();
-        console.log("Initiated the process controller");
+        console.log("Initiated the transformation controller" + $scope.toString());
 
     }
-    
+
 }
