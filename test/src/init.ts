@@ -1,6 +1,7 @@
 ///<reference path="../../admin-ui/typings/angularjs/angular.d.ts" />
 
-import IAugmentedJQuery = angular.IAugmentedJQuery;;
+import IAugmentedJQuery = angular.IAugmentedJQuery;
+;
 /**
  * @ngdoc overview
  * @name mainApp
@@ -11,15 +12,16 @@ import IAugmentedJQuery = angular.IAugmentedJQuery;;
  */
 
 
-
 import "jquery";
 
 
 import "bootstrap";
 import "bootstrap/css/bootstrap.css!";
 
-
 import {TransformationController} from "../../admin-ui/controllers/transformation";
+import {FakeParentController} from "./fake_parent_controller";
+
+import {Transformation} from "../../admin-ui/directives/transformation";
 
 
 function initApp() {
@@ -32,8 +34,13 @@ function initApp() {
 
     // Register all controllers
     exampleApp.controller("TransformationController", ["$scope", "$http", "$q", "$timeout", TransformationController]);
+    exampleApp.controller("FakeParentController", ["$scope", "$http", FakeParentController]);
 
-    console.log("Added controllers")
+    // Register all directives
+    exampleApp.directive("transformation", Transformation);
+
+
+    console.log("Added controllers");
     // Find the html angular element.
     let $html: IAugmentedJQuery = angular.element(document.getElementsByTagName("html")[0]);
 
@@ -42,8 +49,6 @@ function initApp() {
         console.log("Bootstrap the application.");
 
         angular.bootstrap($html, ["exampleApp"]);
-
-
 
 
     });

@@ -10,7 +10,9 @@
         System.import('src/init');
     </script>
 </head>
-<body ng-controller="TransformationController as tc">
-{{tc.hello();}}
+<body ng-controller="FakeParentController as f">
+    <div style="float:left"><pre>{{f.model| json : spacing}}</pre></div>
+    <div style="float:left"><transformation parent-controller="f"></transformation></div>
+
 </body>
 </html>

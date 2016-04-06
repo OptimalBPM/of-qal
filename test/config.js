@@ -14,6 +14,8 @@ System.config({
     "/qal-plugin/admin-ui/directives": {
       "defaultExtension": "ts"
     },
+    "/qal-plugin/admin-ui/views": {
+    },
     "/qal-plugin/admin-ui/admin-ui/plugins": {
       "defaultExtension": "ts"
     },

@@ -1,20 +1,30 @@
-/// <reference path="../typings/tsd.d.ts" />
+
+/**
+ * Created by nibo on 2015-09-05.
+ */
+/// <reference path="../typings/angularjs/angular.d.ts" />
+/// <reference path="../typings/jquery/jquery.d.ts" />
+
+
+"use strict";
 
 import "angular";
 
 
 
-export function nodes(): ng.IDirective {
-exampleApp.directive('TransformationsIncludeDirective', function () {
 
+export function Transformation(): ng.IDirective {
     return {
-        require: [],
-        restrict: 'A',
-        scope: false,
-        // Define a controller, use the function from above, inject the scope
-        controller: ['$scope', exampleIncludeController],
-        link: function (scope, iElement, iAttrs, ngModelCtrl) {
-           console.log("In example directive link function");
-        }
+        restrict: "E",
+        scope: {
+            parentController: "="
+        },
+        controller: "TransformationController",
+        link: ($scope: any, element: JQuery) => {
+            console.log("link function in process directive called ");
+        },
+        templateUrl: "../admin-ui/views/transformation.html"
     };
-});
+
+}
+
