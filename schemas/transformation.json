@@ -78,7 +78,23 @@
                 },
                 "resources": {
                     "items": {
-                        "$ref": "qal://resources.json#/definitions/Resource"
+                        "additionalProperties": true,
+                        "properties": {
+                            "base_path": {
+                                "type": "string"
+                            },
+                            "caption": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string"
+                            },
+                            "uuid": {
+                                "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
                     },
                     "type": "array"
                 },

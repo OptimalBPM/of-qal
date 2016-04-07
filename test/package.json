@@ -2,7 +2,8 @@
   "jspm": {
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.5.3",
-      "angular-schema-form": "npm:angular-schema-form@^0.8.13",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.5.3",
+      "angular-schema-form": "github:json-schema-form/angular-schema-form@^0.8.13",
       "angular-schema-form-bootstrap": "npm:angular-schema-form-bootstrap@^0.2.0",
       "bootstrap": "github:twbs/bootstrap@^3.3.6",
       "css": "github:systemjs/plugin-css@^0.1.20",

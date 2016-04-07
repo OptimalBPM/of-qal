@@ -21,6 +21,7 @@ export class FakeParentController {
             });
 
     };
+    
     loadModel = (url: string): any => {
         return this.$http.get(url)
             .success((data: any) => {

@@ -19,7 +19,7 @@ import "tv4";
 import "bootstrap";
 import "bootstrap/css/bootstrap.css!";
 
-
+import "angular-sanitize";
 import "angular-schema-form";
 import "angular-schema-form-bootstrap";
 
