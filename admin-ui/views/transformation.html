@@ -1,10 +1,9 @@
-<!-- The directive here is in example_include.js (was loaded in example.html)-->
+<!-- The angular template for editing QAL transformations-->
 
 
-<input ng-model="parentController.model.test"/>
-    <p>The form is parentController.form. Currently the form has the following values:</p>
-    <pre>{{parentController.model| json : spacing}}</pre>
-    <p>The schema is at parentController.schema, it is currently:</p>
-    <pre>{{parentController.schema| json : spacing}}</pre>
-
+    <div name="ddd"
+          sf-schema="controller.parentController.schema.definitions.Merge"
+          sf-form="controller.form"
+          sf-model="controller.parentController.model">
+    </div>
 

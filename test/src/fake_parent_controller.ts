@@ -39,9 +39,14 @@ export class FakeParentController {
         this.$http = $http;
 
 
-        this.loadSchema("/qal-plugin/schemas/transformation.json");
-        this.loadModel("model.json");
-        console.log("Initiated the transformation controller" + $scope.toString());
+        this.loadSchema("/qal-plugin/schemas/transformation.json")
+            .then(() => {
+                this.loadModel("model.json").then(() => {
+                    console.log(this.model);
+                    console.log(this.schema);
+                });
+            });
+        console.log("Initiated the FakeParentController controller" + $scope.toString());
 
     }
 

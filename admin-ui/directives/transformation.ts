@@ -10,18 +10,15 @@
 
 import "angular";
 
-
-
-
 export function Transformation(): ng.IDirective {
     return {
         restrict: "E",
         scope: {
             parentController: "="
         },
-        controller: "TransformationController",
+        controller: "transformationController",
         link: ($scope: any, element: JQuery) => {
-            console.log("link function in process directive called ");
+            console.log("link function in transformation directive called ");
         },
         templateUrl: "../admin-ui/views/transformation.html"
     };

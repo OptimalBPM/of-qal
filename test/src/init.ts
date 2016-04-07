@@ -13,10 +13,15 @@ import IAugmentedJQuery = angular.IAugmentedJQuery;
 
 
 import "jquery";
-
+import "objectpath";
+import "tv4";
 
 import "bootstrap";
 import "bootstrap/css/bootstrap.css!";
+
+
+import "angular-schema-form";
+import "angular-schema-form-bootstrap";
 
 import {TransformationController} from "../../admin-ui/controllers/transformation";
 import {FakeParentController} from "./fake_parent_controller";
@@ -26,15 +31,11 @@ import {Transformation} from "../../admin-ui/directives/transformation";
 
 function initApp() {
 
-
-    let exampleApp: any = angular.module("exampleApp",
-        [
-            // "ngRoute", "mgcrea.ngStrap", "ui.tree", "ui.ace", "schemaForm", "ui.layout", "ngAnimate", "schemaTreeModule"
-        ]);
+    let exampleApp: ng.IModule = angular.module("exampleApp", ["schemaForm"]);
 
     // Register all controllers
-    exampleApp.controller("TransformationController", ["$scope", "$http", "$q", "$timeout", TransformationController]);
-    exampleApp.controller("FakeParentController", ["$scope", "$http", FakeParentController]);
+    exampleApp.controller("transformationController", ["$scope", "$http", "$q", "$timeout", TransformationController]);
+    exampleApp.controller("fakeParentController", ["$scope", "$http", FakeParentController]);
 
     // Register all directives
     exampleApp.directive("transformation", Transformation);
@@ -47,12 +48,9 @@ function initApp() {
     angular.element().ready(() => {
         // bootstrap the app manually
         console.log("Bootstrap the application.");
-
         angular.bootstrap($html, ["exampleApp"]);
 
-
     });
-
 
 }
 
