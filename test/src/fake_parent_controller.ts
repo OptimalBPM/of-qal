@@ -40,7 +40,7 @@ export class FakeParentController {
         this.$http = $http;
 
 
-        this.loadSchema("/qal-plugin/schemas/transformation.json")
+        this.loadSchema("/of-qal/schemas/transformation.json")
             .then(() => {
                 this.loadModel("model.json").then(() => {
                     console.log(this.model);

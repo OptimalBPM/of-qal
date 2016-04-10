@@ -1,5 +1,5 @@
 System.config({
-  baseURL: "/qal-plugin/test",
+  baseURL: "/of-qal/test",
   defaultJSExtensions: true,
   transpiler: "typescript",
   paths: {
@@ -8,17 +8,17 @@ System.config({
   },
 
   packages: {
-    "/qal-plugin/admin-ui/controllers": {
+    "/of-qal/admin-ui/controllers": {
       "defaultExtension": "ts"
     },
-    "/qal-plugin/admin-ui/directives": {
+    "/of-qal/admin-ui/directives": {
       "defaultExtension": "ts"
     },
-    "/qal-plugin/admin-ui/views": {},
-    "/qal-plugin/admin-ui/admin-ui/plugins": {
+    "/of-qal/admin-ui/views": {},
+    "/of-qal/admin-ui/admin-ui/plugins": {
       "defaultExtension": "ts"
     },
-    "/qal-plugin/test/src": {
+    "/of-qal/test/src": {
       "defaultExtension": "ts"
     }
   },
