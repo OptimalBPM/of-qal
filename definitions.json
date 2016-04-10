@@ -18,12 +18,17 @@
               "$timeout"
             ]
           }
-                  ]
+        ],
+        "directives": [
+          {
+            "name": "transformation",
+            "module": "qal/directives/transformation"
+          }
+        ]
       }
     }
   },
   "namespaces": {
-
     "qal": {
       "description": "Query Abstraction Layer",
       "title": "QAL",
@@ -54,8 +59,7 @@
               "options": {
                 "modal": true,
                 "buttonCaption": "Edit merge",
-                "includeURI": "qal/views/transformation.html",
-                "schemaRef": "qal://transformation.json#/definitions/Merge"
+                "includeURI": "qal/views/transformation.html"
               },
               "title": "Merge",
               "description": "A structure that defines the merge, see schemas/transformation.json. Returns a QAL dataset.",
