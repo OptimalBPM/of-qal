@@ -26,7 +26,7 @@ import "angular-schema-form-bootstrap";
 import {TransformationController} from "../../admin-ui/controllers/transformation";
 import {FakeParentController} from "./fake_parent_controller";
 
-import {Transformation} from "../../admin-ui/directives/transformation";
+import {transformation} from "../../admin-ui/directives/transformation";
 
 
 function initApp() {
@@ -38,7 +38,7 @@ function initApp() {
     exampleApp.controller("fakeParentController", ["$scope", "$http", FakeParentController]);
 
     // Register all directives
-    exampleApp.directive("transformation", Transformation);
+    exampleApp.directive("transformation", transformation);
 
 
     console.log("Added controllers");

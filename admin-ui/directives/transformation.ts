@@ -10,7 +10,7 @@
 
 import "angular";
 
-export function Transformation(): ng.IDirective {
+export function transformation(): ng.IDirective {
     return {
         restrict: "E",
         scope: {

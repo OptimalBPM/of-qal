@@ -3,7 +3,7 @@
     "qal": {
       "description": "Query Abstraction Layer plugin",
       "title": "QAL",
-      "dependencies": {},
+      "dependencies": ["optimalbpm"],
       "failOnError": true,
       "admin-ui": {
         "mountpoint": "qal",
