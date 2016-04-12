@@ -59,7 +59,9 @@
               "options": {
                 "modal": true,
                 "buttonCaption": "Edit merge",
-                "includeURI": "qal/views/transformation.html"
+                "includeURI": "qal/views/transformation.html",
+                "definitionsCallback": "getDefinitions",
+                "schemaRef": "qal://transformation.json"
               },
               "title": "Merge",
               "description": "A structure that defines the merge, see schemas/transformation.json. Returns a QAL dataset.",

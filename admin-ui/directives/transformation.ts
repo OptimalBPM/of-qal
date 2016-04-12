@@ -16,11 +16,10 @@ export function transformation(): ng.IDirective {
         scope: {
             parentController: "="
         },
-        controller: "transformationController",
+        controller: "TransformationController",
         link: ($scope: any, element: JQuery) => {
             console.log("link function in transformation directive called ");
-        },
-        templateUrl: "../admin-ui/views/transformation.html"
+        }
     };
 
 }

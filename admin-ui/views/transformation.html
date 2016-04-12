@@ -1,9 +1,11 @@
 <!-- The main angular template for editing QAL transformations-->
-
-
+<transformation parent-controller="parentController">
+<div ng-controller="TransformationController as controller">
     <div name="ngForm" ng-form=""
           sf-schema="controller.parentController.schema.definitions.Merge"
           sf-form="controller.form"
           sf-model="controller.parentController.model">
-    </div>
 
+    </div>
+</div>
+</transformation>

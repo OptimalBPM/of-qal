@@ -30,6 +30,7 @@ export class TransformationController {
         this.$timeout = $timeout;
         this.$http = $http;
         this.$q = $q;
+        this.$scope = $scope;
         this.$scope.controller = this;
         this.parentController = ($scope as any).parentController;
 
