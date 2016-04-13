@@ -34,7 +34,7 @@ function initApp() {
     let exampleApp: ng.IModule = angular.module("exampleApp", ["schemaForm"]);
 
     // Register all controllers
-    exampleApp.controller("transformationController", ["$scope", "$http", "$q", "$timeout", TransformationController]);
+    exampleApp.controller("TransformationController", ["$scope", "$http", "$q", "$timeout", TransformationController]);
     exampleApp.controller("fakeParentController", ["$scope", "$http", FakeParentController]);
 
     // Register all directives

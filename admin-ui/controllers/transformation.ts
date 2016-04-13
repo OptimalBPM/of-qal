@@ -3,7 +3,7 @@
 
 import "angular";
 import "angular-schema-form";
-import {transformation_form} from "./schema-forms";
+import {transformation_form, getResourcetypes} from "./schema-forms";
 
 interface TransformationScope extends ng.IScope {
     controller: TransformationController;
@@ -23,7 +23,10 @@ export class TransformationController {
         return "HI!";
     };
 
-
+    listResourceTypes = () => {
+        return getResourcetypes();
+    };
+    
     constructor(private $scope: TransformationScope, $http: ng.IHttpService, $q: ng.IQService, $timeout: ng.ITimeoutService) {
 
         /*this.uiTreeHelper = UiTreeHelper;*/
@@ -35,6 +38,7 @@ export class TransformationController {
         this.parentController = ($scope as any).parentController;
 
         this.form = transformation_form();
+
 
         console.log("Initiated the transformation controller" + $scope.toString());
 

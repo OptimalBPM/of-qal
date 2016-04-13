@@ -10,7 +10,6 @@ export class FakeParentController {
     schema: any;
     model: any;
 
-
     loadSchema = (url: string): any => {
         return this.$http.get(url)
             .success((data: any) => {

@@ -10,9 +10,9 @@
         System.import('src/init');
     </script>
 </head>
-<body ng-controller="fakeParentController as f">
-    <div style="float:left"><pre>{{f.model| json : spacing}}</pre></div>
-    <div style="float:right"><transformation parent-controller="f"></transformation></div>
+<body ng-controller="fakeParentController as parentController">
+    <div style="float:left"><pre>{{parentController.model| json : spacing}}</pre></div>
+    <div style="float:right"><ng-include src="'/of-qal/admin-ui/views/transformation.html'"></div>
 
 </body>
 </html>

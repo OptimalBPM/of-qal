@@ -110,7 +110,7 @@ export function transformation_form() {
 }
 
 
-function getDatatypes() {
+export function getDatatypes() {
     return [
         {value: "integer", name: "integer - any integer, +/- within platform limit"},
         {value: "string", name: "String - any length"},
@@ -123,7 +123,7 @@ function getDatatypes() {
         {value: "blob", name: "BLOB - Binary Large OBject, usually a file."}
     ];
 }
-function getResourcetypes() {
+export function getResourcetypes() {
     return [
         {value: "FLATFILE", name: "A flat text file, fixed width or comma-separated"},
         {value: "XPATH", name: "XPath - XML, XHTML, JSON, any tree that can be managed via XPath"},

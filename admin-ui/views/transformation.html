@@ -1,11 +1,102 @@
 <!-- The main angular template for editing QAL transformations-->
+
 <transformation parent-controller="parentController">
-<div ng-controller="TransformationController as controller">
-    <div name="ngForm" ng-form=""
-          sf-schema="controller.parentController.schema.definitions.Merge"
-          sf-form="controller.form"
-          sf-model="controller.parentController.model">
+
+    <div ng-controller="TransformationController as controller">
+
+        <div style="float: left; width: 40%" name="ngForm" ng-form=""
+             sf-schema="controller.parentController.schema.definitions.Merge"
+             sf-form="controller.form"
+             sf-model="controller.parentController.model">
+
+        </div>
+        <div ng-init="curr_model.resources ? null: curr_model.resources = [{'type':'1'},{'type':'1'}]"
+             style="float: right; width: 40%">
+
+
+            <div ng-repeat="currResourceIndex in [0,1]">
+
+                <legend>{{currResourceIndex==0 ? "Source": "Destination"}}:</legend>
+                Type of resource <select
+                    ng-change="controller.parentController.model.resources[currResourceIndex] = {'type':controller.parentController.model.resources[currResourceIndex].type}"
+                    ng-model="controller.parentController.model.resources[currResourceIndex].type"
+                    ng-options="option.value as option.name for option in controller.listResourceTypes() track by option.value"/>
+                <div ng-include="'resource.html'" ng-switch
+                     on="controller.parentController.model.resources[currResourceIndex].type"></div>
+
+            </div>
+
+        </div>
 
     </div>
-</div>
+
 </transformation>
+
+<script type="text/ng-template" id="resource.html">
+
+    <div ng-switch-when="FLATFILE">
+        <p>
+            Delimiter <input ng-model="controller.parentController.model.resources[currResourceIndex].delimiter"></br>
+            <span class="small">The delimiter, typically ";", "," or "|"</span>
+        </p>
+        <p>
+            Has header <input type="checkbox"
+                             ng-model="controller.parentController.model.resources[currResourceIndex].has_header"></br>
+            <span class="small">Checked if data begins with a header row containing field names</span>
+        </p>
+        <p>
+            Filename <input type="checkbox"
+                           ng-model="controller.parentController.model.resources[currResourceIndex].filename"></br>
+            <span class="small">The name of the file</span>
+        </p>
+        <p>
+            Field names <input
+                ng-model="controller.parentController.model.resources[currResourceIndex].field_names"></br>
+            <span class="small">The names of the fields(field1,field2 - if applicable, see has_header)</span>
+        </p>
+        <p>
+            CSV dialect <input
+                ng-model="controller.parentController.model.resources[currResourceIndex].csv_dialect"></br>
+            <span class="small">Specifies the csv dialect, can be 'excel-tab', 'excel' or 'unix'. Do not use for now.</span>
+        </p>
+        <p>
+            Quoting <select
+                ng-model="controller.parentController.model.resources[currResourceIndex].quoting">
+            <option value="None">No quoting at all, quotes will be treated as values</option>
+            <option value="MINIMAL">Quoting is only used when necessary</option>
+            <option value="ALL">Quoting is applied used on all fields</option>
+            <option value="NONNUMERIC">Non-numeric fields are quoted</option>
+        </select></br>
+            <span class="small">To what degree does the file employ quoting?</span>
+        </p>
+
+        <p>
+            Quote character <input
+                ng-model="controller.parentController.model.resources[currResourceIndex].quotechar"></br>
+            <span class="small">What character to use for quoting. Normally " (citation).</span>
+        </p>
+        <p>
+            Escape character <input
+                ng-model="controller.parentController.model.resources[currResourceIndex].escapechar"></br>
+            <span class="small">What character is used to escape special characters, typically \. (backslash)</span>
+        </p>
+        <p>
+            Line terminator <input
+                ng-model="controller.parentController.model.resources[currResourceIndex].lineterminator"></br>
+            <span class="small">What character is used to indicate the end of a line. typically \n. (Newline)</span>
+        </p>
+
+        <p>
+            Skip initial space <input type="checkbox"
+                             ng-model="controller.parentController.model.resources[currResourceIndex].has_header"></br>
+            <span class="small">True if initial spaces should be disregarded</span>
+        </p>
+    </div>
+    <div ng-switch-when="XPATH">
+        <div ng-init="test_val='XPATH'"></div>
+        XPATH
+    </div>
+    <div ng-switch-when="RDBMS">
+        RDBMS
+    </div>
+</script>
