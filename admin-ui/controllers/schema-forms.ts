@@ -38,27 +38,111 @@ export function transformation_form() {
             "items": [
                 {
                     "key": "resources",
+                    "description": "The resources involved, in a merge, one must be \"source\" and another \" destination\"",
                     "notitle": true,
                     "type": "array",
                     "items": [
-                        "base_path",
+                        "subforms",
                         {
-                            "key": "resources[].caption",
-                            "title": "Friendly name",
-                            "description": "A resource can be called anything, but in a merge, either \"source\" or \" destination\" "
-                        },
-                        {
-                            "key": "resources[].type",
-                            "title": "Resource type",
-                            // Exclude the "datatypes" type, TODO: What does this mean?
-                            "titleMap": getResourcetypes(),
+                            "type": "formselect",
+                            "title": "Type of resource",
+                            "titleMap": [
+                                {
+                                    "name": "Textfile",
+                                    "value": 0
+                                },
+                                {
+                                    "name": "XPath",
+                                    "value": 1
+                                },
+                                {
+                                    "name": "RDBMS",
+                                    "value": 2
+                                }
+                            ],
+                            "items": [
+                                {
+                                    "title": "Flatfile",
+                                    "type": "fieldset",
+                                    "items": [
 
-                            "type": "select",
-                            "description": "An approximation of the datatypes of the sources"
-                        },
-                        {
-                            "key": "resources[].uuid",
-                            "title": "UUID"
+                                        {
+                                            "key": "resources[].delimiter",
+                                            "type": "string",
+                                            "title": "Delimiter",
+                                            "description": "The delimiter, typically \";\", \",\" or \"|\" "
+                                        },
+                                        {
+                                            "key": "resources[].has_header",
+                                            "type": "string",
+                                            "title": "Has header",
+                                            "description": "Checked if data begins with a header row containing field names",
+
+                                        },
+                                        {
+                                            "key": "resources[].filename",
+                                            "type": "string",
+                                            "title": "Filename",
+                                            "description": "The name of the file",
+
+                                        }
+
+                                    ]
+                                },
+                                {
+                                    "title": "XPath",
+                                    "type": "fieldset",
+                                    "items": [
+
+                                        {
+                                            "key": "resources[].delimiter",
+                                            "type": "string",
+                                            "title": "Delimiter",
+                                            "description": "The delimiter, typically \";\", \",\" or \"|\" "
+                                        },
+                                        {
+                                            "key": "resources[].has_header",
+                                            "type": "string",
+                                            "title": "Has header",
+                                            "description": "Checked if data begins with a header row containing field names",
+
+                                        },
+                                        {
+                                            "key": "resources[].filename",
+                                            "type": "string",
+                                            "title": "Filename",
+                                            "description": "Checked if data begins with a header row containing field names",
+
+                                        }
+
+                                    ]
+                                },
+                                {
+                                    "title": "RDBMS",
+                                    "type": "fieldset",
+                                    "items": [
+
+                                        {
+                                            "key": "resources[].delimiter",
+                                            "type": "string",
+                                            "title": "Delimiter",
+                                            "description": "The delimiter, typically \";\", \",\" or \"|\" "
+                                        },
+                                        {
+                                            "key": "resources[].has_header",
+                                            "type": "string",
+                                            "title": "Has header",
+                                            "description": "Checked if data begins with a header row containing field names",
+
+                                        },
+                                        {
+                                            "key": "resources[].uuid",
+                                            "title": "UUID"
+                                        }
+
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }
@@ -123,6 +207,7 @@ export function getDatatypes() {
         {value: "blob", name: "BLOB - Binary Large OBject, usually a file."}
     ];
 }
+
 export function getResourcetypes() {
     return [
         {value: "FLATFILE", name: "A flat text file, fixed width or comma-separated"},

@@ -4,30 +4,12 @@
 
     <div class="col-lg-12" ng-controller="TransformationController as controller">
 
-        <div class="col-lg-6" name="ngForm" ng-form=""
+        <div name="ngForm" ng-form=""
              sf-schema="controller.parentController.schema.definitions.Merge"
              sf-form="controller.form"
              sf-model="controller.parentController.model">
 
         </div>
-        <div class="col-lg-6" ng-init="curr_model.resources ? null: curr_model.resources = [{'type':'1'},{'type':'1'}]"
-             style="width:250px; margin-left: 10px">
-
-
-            <div ng-repeat="currResourceIndex in [0,1]">
-
-                <legend>{{currResourceIndex==0 ? "Source": "Destination"}}:</legend>
-                Type of resource <select style="width:99%"
-                    ng-change="controller.parentController.model.resources[currResourceIndex] = {'type':controller.parentController.model.resources[currResourceIndex].type}"
-                    ng-model="controller.parentController.model.resources[currResourceIndex].type"
-                    ng-options="option.value as option.name for option in controller.listResourceTypes() track by option.value"/>
-                <div ng-include="'resource.html'" ng-switch
-                     on="controller.parentController.model.resources[currResourceIndex].type"></div>
-
-            </div>
-
-        </div>
-
     </div>
 
 </transformation>
@@ -36,17 +18,18 @@
 
     <div ng-switch-when="FLATFILE">
         <p>
-            Delimiter <input ng-model="controller.parentController.model.resources[currResourceIndex].delimiter"></br>
+            <span class="label">Delimiter</span> <input size="3" class="form-control  ng-empty ng-valid-schema-form"  ng-model="controller.parentController.model.resources[currResourceIndex].delimiter">
+            </br>
             <span class="small">The delimiter, typically ";", "," or "|"</span>
         </p>
         <p>
-            Has header <input type="checkbox"
-                             ng-model="controller.parentController.model.resources[currResourceIndex].has_header"></br>
+            <input type="checkbox" ng-model="controller.parentController.model.resources[currResourceIndex].has_header">
+            Has header
+            </br>
             <span class="small">Checked if data begins with a header row containing field names</span>
         </p>
         <p>
-            Filename <input type="checkbox"
-                           ng-model="controller.parentController.model.resources[currResourceIndex].filename"></br>
+            Filename</br><input ng-model="controller.parentController.model.resources[currResourceIndex].filename">
             <span class="small">The name of the file</span>
         </p>
         <p>
@@ -87,8 +70,10 @@
         </p>
 
         <p>
-            Skip initial space <input type="checkbox"
-                             ng-model="controller.parentController.model.resources[currResourceIndex].has_header"></br>
+            <input type="checkbox"
+                             ng-model="controller.parentController.model.resources[currResourceIndex].has_header">
+            Skip initial spaces
+            </br>
             <span class="small">True if initial spaces should be disregarded</span>
         </p>
     </div>
