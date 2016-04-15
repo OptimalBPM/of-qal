@@ -56,6 +56,7 @@
             {
               "key": "merge",
               "type": "complex-ui",
+              "htmlClass": "col-lg-9",
               "options": {
                 "modal": true,
                 "buttonCaption": "Edit merge",

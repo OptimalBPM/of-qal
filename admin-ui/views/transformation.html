@@ -2,22 +2,22 @@
 
 <transformation parent-controller="parentController">
 
-    <div ng-controller="TransformationController as controller">
+    <div class="col-lg-12" ng-controller="TransformationController as controller">
 
-        <div style="float: left; width: 40%" name="ngForm" ng-form=""
+        <div class="col-lg-6" name="ngForm" ng-form=""
              sf-schema="controller.parentController.schema.definitions.Merge"
              sf-form="controller.form"
              sf-model="controller.parentController.model">
 
         </div>
-        <div ng-init="curr_model.resources ? null: curr_model.resources = [{'type':'1'},{'type':'1'}]"
-             style="float: right; width: 40%">
+        <div class="col-lg-6" ng-init="curr_model.resources ? null: curr_model.resources = [{'type':'1'},{'type':'1'}]"
+             style="width:250px; margin-left: 10px">
 
 
             <div ng-repeat="currResourceIndex in [0,1]">
 
                 <legend>{{currResourceIndex==0 ? "Source": "Destination"}}:</legend>
-                Type of resource <select
+                Type of resource <select style="width:99%"
                     ng-change="controller.parentController.model.resources[currResourceIndex] = {'type':controller.parentController.model.resources[currResourceIndex].type}"
                     ng-model="controller.parentController.model.resources[currResourceIndex].type"
                     ng-options="option.value as option.name for option in controller.listResourceTypes() track by option.value"/>
@@ -60,7 +60,7 @@
             <span class="small">Specifies the csv dialect, can be 'excel-tab', 'excel' or 'unix'. Do not use for now.</span>
         </p>
         <p>
-            Quoting <select
+            Quoting <select style="width:99%"
                 ng-model="controller.parentController.model.resources[currResourceIndex].quoting">
             <option value="None">No quoting at all, quotes will be treated as values</option>
             <option value="MINIMAL">Quoting is only used when necessary</option>
