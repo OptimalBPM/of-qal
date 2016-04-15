@@ -65,7 +65,49 @@ export function transformation_form() {
                                     "title": "Flatfile",
                                     "type": "fieldset",
                                     "items": [
+                                        {
+                                            "key": "resources[].filename",
+                                            "type": "string",
+                                            "title": "Filename",
+                                            "description": "The name of the file"
 
+                                        },
+                                        {
+                                            "key": "resources[].fieldnames",
+                                            "type": "array",
+                                            "title": "Field names",
+                                            "description": "The names of the fields(field1,field2 - if applicable, see has_header)",
+                                            "items": [
+                                                {"type": "string"}
+                                            ]
+
+                                        },
+                                        {
+                                            "key": "resources[].csv_dialect",
+                                            "type": "select",
+                                            "title": "CSV dialect",
+                                            "titleMap": [
+                                                {"name": "excel-tab", "value": "excel-tab"},
+                                                {"name": "excel", "value": "excel"},
+                                                {"name": "unix", "value": "unix"}
+                                            ],
+                                            "description": "Specifies the csv dialect, can be 'excel-tab', 'excel' or 'unix'. Do not use for now.",
+
+                                        },
+                                        {
+                                            "key": "resources[].quoting",
+                                            "type": "select",
+                                            "title": "Quoting",
+                                            "titleMap": [
+                                                {"name": "No quoting at all, quotes will be treated as values", "value": "None"},
+                                                {"name": "Quoting is only used when necessary", "value": "MINIMAL"},
+                                                {"name": "Quoting is applied used on all fields", "value": "ALL"},
+                                                {"name": "excel-tab", "value": "excel-tab"},
+                                                {"name": "Non-numeric fields are quoted", "value": "NONNUMERIC"}
+                                            ],
+                                            "description": "To what degree does the file employ quoting?.",
+
+                                        },
                                         {
                                             "key": "resources[].delimiter",
                                             "type": "string",
@@ -76,15 +118,32 @@ export function transformation_form() {
                                             "key": "resources[].has_header",
                                             "type": "string",
                                             "title": "Has header",
-                                            "description": "Checked if data begins with a header row containing field names",
+                                            "description": "Checked if data begins with a header row containing field names"
 
                                         },
                                         {
-                                            "key": "resources[].filename",
+                                            "key": "resources[].quotechar",
                                             "type": "string",
-                                            "title": "Filename",
-                                            "description": "The name of the file",
-
+                                            "title": "Quote character",
+                                            "description": "What character to use for quoting. Normally \" (citation)."
+                                        },
+                                        {
+                                            "key": "resources[].escapechar",
+                                            "type": "string",
+                                            "title": "Escape character",
+                                            "description": "What character is used to escape special characters, typically \\. (backslash)"
+                                        },
+                                        {
+                                            "key": "resources[].lineterminator",
+                                            "type": "string",
+                                            "title": "Line terminator",
+                                            "description": "What character is used to indicate the end of a line. typically \\n. (Newline)"
+                                        },
+                                        {
+                                            "key": "resources[].skipinitialspace",
+                                            "type": "string",
+                                            "title": "Skip initial spaces",
+                                            "description": "True if initial spaces should be disregarded"
                                         }
 
                                     ]
