@@ -7,7 +7,9 @@ bpm_callbacks = None
 def merge_datasets(merge):
     print("In qal.merge_datasets")
     print("Initializing merge..")
-    _merge = Merge(_json=merge, _base_path="/Users/nicklasborjesson/optimalframework/agent_repositories/000000010000010002e64d21")
+    _merge = Merge(_json=merge)
+
+    # TODO: Add base path to the merge: , _base_path="/Users/nicklasborjesson/optimalframework/agent_repositories/000000010000010002e64d21")
     print("Executing merge..")
     _merge.execute()
     print("Merge executed..")

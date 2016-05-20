@@ -66,6 +66,20 @@ export function transformation_form() {
                                     "type": "fieldset",
                                     "items": [
                                         {
+                                            "key": "resources[].uuid",
+                                            "type": "string",
+                                            "title": "uuid",
+                                            "description": "The Identifier of the resource"
+
+                                        },
+                                        {
+                                            "key": "resources[].type",
+                                            "type": "string",
+                                            "title": "type",
+                                            "description": "The type of the resource"
+
+                                        },
+                                        {
                                             "key": "resources[].filename",
                                             "type": "string",
                                             "title": "Filename",
@@ -152,7 +166,20 @@ export function transformation_form() {
                                     "title": "XPath",
                                     "type": "fieldset",
                                     "items": [
+                                        {
+                                            "key": "resources[].uuid",
+                                            "type": "string",
+                                            "title": "uuid",
+                                            "description": "The Identifier of the resource"
 
+                                        },
+                                        {
+                                            "key": "resources[].type",
+                                            "type": "string",
+                                            "title": "type",
+                                            "description": "The type of the resource"
+
+                                        },
                                         {
                                             "key": "resources[].delimiter",
                                             "type": "string",
@@ -180,23 +207,19 @@ export function transformation_form() {
                                     "title": "RDBMS",
                                     "type": "fieldset",
                                     "items": [
-
-                                        {
-                                            "key": "resources[].delimiter",
-                                            "type": "string",
-                                            "title": "Delimiter",
-                                            "description": "The delimiter, typically \";\", \",\" or \"|\" "
-                                        },
-                                        {
-                                            "key": "resources[].has_header",
-                                            "type": "string",
-                                            "title": "Has header",
-                                            "description": "Checked if data begins with a header row containing field names",
-
-                                        },
                                         {
                                             "key": "resources[].uuid",
-                                            "title": "UUID"
+                                            "type": "string",
+                                            "title": "uuid",
+                                            "description": "The Identifier of the resource"
+
+                                        },
+                                        {
+                                            "key": "resources[].type",
+                                            "type": "string",
+                                            "title": "type",
+                                            "description": "The type of the resource"
+
                                         }
 
                                     ]
