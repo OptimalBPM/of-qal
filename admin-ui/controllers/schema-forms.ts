@@ -48,7 +48,7 @@ export function transformation_form() {
                             "title": "Type of resource",
                             "titleMap": [
                                 {
-                                    "name": "Textfile",
+                                    "name": "Flatfile",
                                     "value": 0
                                 },
                                 {
