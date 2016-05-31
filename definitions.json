@@ -6,25 +6,7 @@
       "dependencies": ["optimalbpm"],
       "failOnError": true,
       "admin-ui": {
-        "mountpoint": "qal",
-        "controllers": [
-          {
-            "name": "TransformationController",
-            "module": "qal/controllers/transformation",
-            "dependencies": [
-              "$scope",
-              "$http",
-              "$q",
-              "$timeout"
-            ]
-          }
-        ],
-        "directives": [
-          {
-            "name": "transformation",
-            "module": "qal/directives/transformation"
-          }
-        ]
+        "mountpoint": "qal"
       }
     }
   },
