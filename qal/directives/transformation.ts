@@ -1,26 +1,22 @@
-
-/**
- * Created by nibo on 2015-09-05.
- */
-/// <reference path="../typings/angularjs/angular.d.ts" />
-/// <reference path="../typings/jquery/jquery.d.ts" />
-
-
-"use strict";
+console.log("Before transformation definition");
 
 import "angular";
+import { TransformationController } from "../controllers/transformation";
+import { upgradeAdapter } from "/optimalbpm/upgrade.adapter";
 
-export function transformation(): ng.IDirective {
-    return {
-        restrict: "E",
-        scope: {
-            parentController: "="
-        },
-        controller: "TransformationController",
-        link: ($scope: any, element: JQuery) => {
-            console.log("link function in transformation directive called ");
-        }
-    };
+export const transformationDirective = {
+    scope: {
+        parentController: "="
+    },
+    controller: TransformationController,
+    link: ($scope: any, element: JQuery) => {
+        console.log("link function in transformation directive called ");
+    }
+};
 
-}
+console.log("After transformation definition");
+
+export const TransformationComponent = upgradeAdapter.upgradeNg1Component('transformation');
+
+
 
