@@ -24,9 +24,8 @@ export const pluginRoutes = [];
  */
 export const pluginMenus = [];
 
-export function initFramework(app, $routeProvider) {
-
+export function initFramework(app) {
     app.component("transformation", transformationDirective);
     
-    console.log("initFramework for OF-QAL was run");
+    console.log("initFramework for OF-QAL plugin was run");
 }

@@ -1,6 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" />
-
-
 import "angular";
 import "angular-schema-form";
 import {transformation_form, getResourcetypes} from "./schema-forms";
@@ -9,14 +6,10 @@ interface TransformationScope extends ng.IScope {
     controller: TransformationController;
 }
 
-
 export class TransformationController {
 
-    $timeout: ng.ITimeoutService;
-    $http: ng.IHttpService;
-    $q: ng.IQService;
-
     form: any;
+
     parentController: any;
 
     hello = (): string => {
@@ -27,21 +20,17 @@ export class TransformationController {
         return getResourcetypes();
     };
     
-    constructor(private $scope: TransformationScope, $http: ng.IHttpService, $q: ng.IQService, $timeout: ng.ITimeoutService) {
+    static $inject = ["$scope", "$http", "$q", "$timeout"];
+
+    constructor(public $scope: TransformationScope, public $http: ng.IHttpService, public $q: ng.IQService, public $timeout: ng.ITimeoutService) {
 
         /*this.uiTreeHelper = UiTreeHelper;*/
-        this.$timeout = $timeout;
-        this.$http = $http;
-        this.$q = $q;
-        this.$scope = $scope;
         this.$scope.controller = this;
         this.parentController = ($scope as any).parentController;
 
         this.form = transformation_form();
 
-
         console.log("Initiated the transformation controller" + $scope.toString());
-
     }
 
 }

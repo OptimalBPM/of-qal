@@ -2,7 +2,7 @@ console.log("Before transformation definition");
 
 import "angular";
 import { TransformationController } from "../controllers/transformation";
-import { upgradeAdapter } from "/optimalbpm/upgrade.adapter";
+import { upgradeAdapter } from "/admin/upgrade.adapter";
 
 export const transformationDirective = {
     scope: {
