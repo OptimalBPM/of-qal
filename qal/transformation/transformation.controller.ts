@@ -20,6 +20,10 @@ export class TransformationController {
         return getResourcetypes();
     };
     
+    $onInit(){
+        console.log("link function in transformation directive called ");
+    }
+
     static $inject = ["$scope", "$http", "$q", "$timeout"];
 
     constructor(public $scope: TransformationScope, public $http: ng.IHttpService, public $q: ng.IQService, public $timeout: ng.ITimeoutService) {

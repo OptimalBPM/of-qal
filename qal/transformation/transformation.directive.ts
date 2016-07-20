@@ -1,17 +1,14 @@
 console.log("Before transformation definition");
 
 import "angular";
-import { TransformationController } from "../controllers/transformation";
+import { TransformationController } from "./transformation.controller";
 import { upgradeAdapter } from "/admin/upgrade.adapter";
 
 export const transformationDirective = {
-    scope: {
+    bindings: {
         parentController: "="
     },
     controller: TransformationController,
-    link: ($scope: any, element: JQuery) => {
-        console.log("link function in transformation directive called ");
-    }
 };
 
 console.log("After transformation definition");

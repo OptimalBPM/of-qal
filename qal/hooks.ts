@@ -1,4 +1,4 @@
-import {transformationDirective, TransformationComponent} from "./directives/transformation";
+import {transformationDirective, TransformationComponent} from "./transformation/index";
 
 /*
  * Export angular functionality directives,components, services e.t.c
