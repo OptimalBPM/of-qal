@@ -1167,7 +1167,7 @@
     "properties": {
         "resources": {
             "items": {
-                "$ref": "qal://resources.json#/definitions/Resource"
+                "$ref": "ref://qal.resources#/definitions/Resource"
             },
             "type": "array"
         },
