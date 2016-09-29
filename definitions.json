@@ -42,7 +42,7 @@
               "options": {
                 "modal": true,
                 "buttonCaption": "Edit merge",
-                "includeURI": "qal/views/transformation.html",
+                "includeURI": "admin/qal/views/transformation.html",
                 "schemaRef": "qal://transformation.json",
                 "definitionsCallback": "getDefinitions"
 
